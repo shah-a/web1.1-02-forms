@@ -1,3 +1,7 @@
+# Bismillah al-Rahmaan al-Raheem
+# Ali Shah | Nov. 01, 2020
+# WEB1.1 Assignment 2: Forms
+
 from flask import Flask, request, render_template
 import random
 
@@ -33,11 +37,11 @@ def favorites():
     """Shows the user a form to choose their favorite color, animal, and city."""
     return """
     <form action="/favorites_results" method="GET">
-        What is your favourite colour?<br/>
+        What is your favorite color?<br/>
         <input type="text" name="color"><br/>
-        What are your favourite animals?<br/>
+        What are your favorite animals?<br/>
         <input type="text" name="animal"><br/>
-        What is your favourite city?<br/>
+        What is your favorite city?<br/>
         <input type="text" name="city"><br/>
         <input type="submit" value="Submit!">
     </form>
@@ -81,6 +85,7 @@ def calculator():
 @app.route('/calculator_results')
 def calculator_results():
     """Shows the user the result of their calculation."""
+
     operand1 = int(request.args.get('operand1'))
     operand2 = int(request.args.get('operand2'))
     operation = request.args.get('operation')
@@ -143,8 +148,11 @@ def compliments():
 @app.route('/compliments_results')
 def compliments_results():
     """Show the user some compliments."""
+
+    users_name = request.args.get('users_name')
+
     context = {
-        # TODO: Enter your context variables here.
+        'users_name': users_name
     }
 
     return render_template('compliments_results.html', **context)
