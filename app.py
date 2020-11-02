@@ -112,7 +112,7 @@ def calculator_results():
     elif operation == 'multiply':
         result = operand1 * operand2
     elif operation == 'divide':
-        result = operand1 / operand
+        result = operand1 / operand2
         result = "{:.2f}".format(result)  # display result at two decimals places
 
     return f'You chose to {operation} {operand1} and {operand2}. Your result is: {result}'
