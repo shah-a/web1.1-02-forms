@@ -150,9 +150,16 @@ def compliments_results():
     """Show the user some compliments."""
 
     users_name = request.args.get('users_name')
+    wants_compliments = request.args.get('wants_compliments')
+    num_compliments = int(request.args.get('num_compliments'))
+
+    wants_compliments = True if wants_compliments == "yes" else False
+    random_compliments = random.sample(list_of_compliments, num_compliments)
 
     context = {
-        'users_name': users_name
+        'users_name': users_name,
+        'wants_compliments': wants_compliments,
+        'random_compliments': random_compliments
     }
 
     return render_template('compliments_results.html', **context)

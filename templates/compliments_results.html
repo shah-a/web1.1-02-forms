@@ -8,7 +8,15 @@
 </head>
 
 <body>
-  <p>Hope you're ready for some compliments, {{users_name}} :)</p>
+  <p>Hi {{users_name}} :)</p>
+  {% if wants_compliments %}
+  <p>You are:</p>
+  <ul>
+    {% for compliment in random_compliments %}
+      <li>{{compliment}}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </body>
 
 </html>
